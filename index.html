@@ -1,0 +1,1239 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="cv.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script>
+        /*-------------------------------------------SELECTED ELEMENTS--------------------------------------------*/
+
+    </script>
+    <script>
+        /*-------------------------------------------JQUERY--------------------------------------------*/
+        $(function() {
+            $("#finder_window").draggable().resizable();
+
+        });
+
+    </script>
+    <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------FINDER SCRIPT----------------------------------------------------------------------------------------------------------------------------->
+
+    <script>
+     
+
+        function miniFinder() {
+            var findwind=document.getElementById("finder_window");
+            var bigDock = document.getElementById('icon_container');
+            var dockIconC = document.createElement("div");
+            dockIconC.setAttribute("class", "dock_icons hider");
+            dockIconC.style.width="100px";
+            dockIconC.setAttribute('id','hider');
+            dockIconC.style.position='relative';
+            dockIconC.style.zIndex="100000111110000011110001";
+            dockIconC.setAttribute('onclick','backFinder()')
+            var Dwid = document.getElementById('dock');
+            Dwid.setAttribute('style','width:1176px'); 
+            bigDock.appendChild(dockIconC);
+            findwind.classList.add('minimix');
+            findwind.classList.remove('minimixBack');
+        }
+        
+        function backFinder(){
+             var findwind=document.getElementById("finder_window");
+            findwind.classList.remove('minimix');
+            findwind.classList.add('minimixBack');
+            document.getElementById('hider').remove();
+            
+            var Dwid = document.getElementById('dock');
+            Dwid.setAttribute('style','width:1070px'); 
+        }
+        
+        
+        
+        function closeFinder() {
+            var x = document.getElementById("finder_window");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable");
+            switching = true;
+            //Set the sorting direction to ascending:
+            dir = "asc";
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.getElementsByTagName("TR");
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 1; i < (rows.length - 1); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    /*check if the two rows should switch place,
+                    based on the direction, asc or desc:*/
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    //Each time a switch is done, increase this count by 1:
+                    switchcount++;
+                } else {
+                    /*If no switching has been done AND the direction is "asc",
+                    set the direction to "desc" and run the while loop again.*/
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+        function openUp() {
+            var apple_files = document.getElementById("title_blocks_files");
+            var apple_finder = document.getElementById("title_blocks_finder");
+            var apple_go = document.getElementById("title_blocks_go");
+            var apple_edit = document.getElementById('title_blocks_edit')
+            var apple_help = document.getElementById('title_blocks_help');
+            var apple_view = document.getElementById('title_blocks_view');
+            var apple_button = document.getElementById("title_blocks");
+
+            if (apple_button.style.display == 'none') {
+                apple_button.style.display = 'block';
+                apple_files.style.display = 'none';
+                apple_finder.style.display = 'none';
+                apple_go.style.display = 'none';
+                apple_edit.style.display = 'none';
+                apple_help.style.display = 'none';
+                apple_view.style.display = 'none';
+            } else {
+                apple_button.style.display = 'none';
+            }
+        }
+
+        function openUpFiles() {
+            var apple_button1 = document.getElementById("title_blocks");
+            var apple_finder = document.getElementById("title_blocks_finder");
+            var appleedit = document.getElementById('title_blocks_edit')
+            var applego = document.getElementById("title_blocks_go");
+            var applehelp = document.getElementById('title_blocks_help');
+            var appleview = document.getElementById('title_blocks_view');
+            var apple_button = document.getElementById("title_blocks_files");
+            if (apple_button.style.display == 'none') {
+                apple_button.style.display = 'block';
+                applehelp.style.display = 'none';
+                appleedit.style.display = "none";
+                apple_button1.style.display = "none";
+                apple_finder.style.display = "none";
+                applego.style.display = "none";
+                appleview.style.display = "none";
+            } else {
+                apple_button.style.display = 'none';
+            }
+        }
+
+        function openUpFinder() {
+            var apple_button1 = document.getElementById("title_blocks");
+            var apple_files = document.getElementById("title_blocks_files");
+            var appleedit = document.getElementById('title_blocks_edit')
+            var applego = document.getElementById("title_blocks_go");
+            var applehelp = document.getElementById('title_blocks_help');
+            var appleview = document.getElementById('title_blocks_view');
+            var apple_button = document.getElementById("title_blocks_finder");
+            if (apple_button.style.display == 'none') {
+                apple_button.style.display = 'block';
+                appleedit.style.display = "none";
+                applehelp.style.display = 'none';
+                apple_files.style.display = "none";
+                apple_button1.style.display = "none";
+                applego.style.display = "none";
+                appleview.style.display = "none";
+            } else {
+                apple_button.style.display = 'none';
+            }
+        }
+
+        function openUpGo() {
+            var apple_button1 = document.getElementById("title_blocks");
+            var apple_files = document.getElementById("title_blocks_files");
+            var applego = document.getElementById("title_blocks_finder");
+            var applehelp = document.getElementById('title_blocks_help');
+            var appleview = document.getElementById('title_blocks_view');
+            var appleedit = document.getElementById('title_blocks_edit')
+            var apple_button = document.getElementById("title_blocks_go");
+            if (apple_button.style.display == 'none') {
+                apple_button.style.display = 'block';
+                apple_files.style.display = "none";
+                applehelp.style.display = 'none';
+                appleview.style.display = 'none';
+                appleedit.style.display = "none";
+                apple_button1.style.display = "none";
+                applego.style.display = "none";
+            } else {
+                apple_button.style.display = 'none';
+            }
+        }
+
+        function openUpEdit() {
+            var apple_button1 = document.getElementById("title_blocks");
+            var apple_files = document.getElementById("title_blocks_files");
+            var applego = document.getElementById("title_blocks_finder");
+            var applehelp = document.getElementById('title_blocks_help');
+            var appleview = document.getElementById('title_blocks_view');
+            var appleedit = document.getElementById('title_blocks_go')
+            var apple_button = document.getElementById("title_blocks_edit");
+            if (apple_button.style.display == 'none') {
+                apple_button.style.display = 'block';
+                apple_files.style.display = "none";
+                appleview.style.display = "none";
+                applehelp.style.display = 'none';
+                apple_button1.style.display = "none";
+                applego.style.display = "none";
+                appleedit.style.display = "none"
+
+
+            } else {
+                apple_button.style.display = 'none';
+            }
+        }
+
+        function openUpHelp() {
+            var apple_button1 = document.getElementById("title_blocks");
+            var apple_files = document.getElementById("title_blocks_files");
+            var appleview = document.getElementById('title_blocks_view');
+            var applego = document.getElementById("title_blocks_finder");
+            var applehelp = document.getElementById('title_blocks_go');
+            var appleeddit = document.getElementById("title_blocks_edit");
+            var apple_button = document.getElementById("title_blocks_help");
+            if (apple_button.style.display == 'none') {
+                apple_button.style.display = 'block';
+                apple_files.style.display = "none";
+                applehelp.style.display = 'none';
+                apple_button1.style.display = "none";
+                applego.style.display = "none";
+                appleview.style.display = "none";
+                appleeddit.style.display = "none"
+            } else {
+                apple_button.style.display = 'none';
+            }
+        }
+
+        function openUpEdit() {
+            var apple_button1 = document.getElementById("title_blocks");
+            var apple_files = document.getElementById("title_blocks_files");
+            var applego = document.getElementById("title_blocks_finder");
+            var applehelp = document.getElementById('title_blocks_help');
+            var appleview = document.getElementById('title_blocks_view');
+            var appleedit = document.getElementById('title_blocks_go');
+            var apple_button = document.getElementById("title_blocks_edit");
+            if (apple_button.style.display == 'none') {
+                apple_button.style.display = 'block';
+                apple_files.style.display = "none";
+                applehelp.style.display = 'none';
+                appleedit.style.display = 'none';
+                apple_button1.style.display = "none";
+                applego.style.display = "none";
+                appleview.style.display = "none";
+            } else {
+                apple_button.style.display = 'none';
+            }
+        }
+
+        function openUpView() {
+            var apple_button1 = document.getElementById("title_blocks");
+            var apple_files = document.getElementById("title_blocks_files");
+            var applego = document.getElementById("title_blocks_finder");
+            var applehelp = document.getElementById('title_blocks_go');
+            var appleedit = document.getElementById('title_blocks_edit');
+            var appleview = document.getElementById('title_blocks_help');
+            var apple_button = document.getElementById("title_blocks_view");
+            if (apple_button.style.display == 'none') {
+                apple_button.style.display = 'block';
+                apple_files.style.display = "none";
+                appleedit.style.display = 'none';
+                applehelp.style.display = 'none';
+                appleview.style.display = "none";
+                apple_button1.style.display = "none";
+                applego.style.display = "none";
+            } else {
+                apple_button.style.display = 'none';
+            }
+        }
+
+        function makeblocks() {
+            document.getElementById('myTable').style.display = 'none';
+            document.getElementById('work_area_finder').style.backgroundColor = "white";
+            document.getElementById('automer').style.display = "block";
+            document.getElementsByClassName('list').style.backgroundColor = "rgba(0, 126, 255,0.1)";
+        }
+
+
+
+
+
+
+
+        function OpenFinder() {
+            var finderWindow = document.getElementById('finder_window');
+            finderWindow.style.display = "block";
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="title_bar">
+        <div class="lefty">
+            <i class="fab fa-apple title_right" style="padding: 3 10" onclick="openUp()"></i>
+            <span class="title_lab" onclick="openUpFinder()">Finder</span>
+            <span class="title_lab" onclick="openUpFiles()">File</span>
+            <span class="title_lab" onclick="openUpEdit()">Edit</span>
+            <span class="title_lab" onclick="openUpView()">View</span>
+            <span class="title_lab" onclick="openUpGo()">Go</span>
+            <span class="title_lab">Window</span>
+            <span class="title_lab" onclick="openUpHelp()">Help</span>
+        </div>
+
+        <div class="righty">
+            <i class="fas fa-battery-full title_right"></i>
+            <i class="fab fa-bluetooth-b title_right"></i>
+            <span class="title_lab">Rasesh Singh</span>
+            <span class="title_lab highlght" id="date"></span>
+        </div>
+    </div>
+    <!--------------------------------------------------Titleblock-------------------------------------------------------------->
+
+
+
+    <!--------------------------------------------------DOCK-------------------------------------------------------------->
+    <center>
+
+        <div id='lol'>
+            <img src="background.png" class="dock" id="dock">
+            <center>
+                <div class="icon_container" id="icon_container">
+                    <div class="dock_icons" onclick="OpenFinder()">
+                        <img src="./icons/finder-icon.png" class="dock_icons" onclick="OpenFinder()">
+                        <span class="icon_lable">Finder</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/new_siri.png" class="dock_icons">
+                        <span class="icon_lable">&nbsp;&nbsp;&nbsp;Siri&nbsp;&nbsp;&nbsp;</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/launcher-icon.jpg" class="dock_icons">
+                        <span class="icon_lable">Launcher</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/itunes.png" class="dock_icons">
+                        <span class="icon_lable">itunes</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/contacts-icon.png" class="dock_icons">
+                        <span class="icon_lable">Contacts</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/find_my_iphone.png" class="dock_icons">
+                        <span class="icon_lable">Iphone</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/safari-icon.png" class="dock_icons">
+                        <span class="icon_lable">Safari</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/messages-icon.png" class="dock_icons">
+                        <span class="icon_lable">Messages</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/system-preferences-icon.png" class="dock_icons">
+                        <span class="icon_lable">Settings</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/reminders-icon.png" class="dock_icons">
+                        <span class="icon_lable">Reminders</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/textedit-icon.png" class="dock_icons">
+                        <span class="icon_lable">Text Editor</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/preview-icon.png" class="dock_icons">
+                        <span class="icon_lable">Preview</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/ibooks-icon.png" class="dock_icons">
+                        <span class="icon_lable">ibooks</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/maps-icon.png" class="dock_icons">
+                        <span class="icon_lable">Maps</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/photo_icon.png" class="dock_icons">
+                        <span class="icon_lable">Photos</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/facetime-icon.png" class="dock_icons">
+                        <span class="icon_lable">Facetime</span>
+                    </div>
+                    <div class="dock_icons">
+                        <img src="./icons/calculator-icon.png" class="dock_icons">
+                        <span class="icon_lable">Calculator</span>
+                    </div>
+                    <div class="dock_icons" style="">
+                        <img src="./icons/trashempty.png" class="dock_icons">
+                        <span class="icon_lable">Trash</span>
+                    </div>
+
+
+
+                </div>
+            </center>
+        </div>
+    </center>
+    <!--------------------------------------------------DOCK-------------------------------------------------------------->
+
+    <div class="topper">
+        <div class="title_blocks" id="title_blocks" style="display: none">
+            <p class="title_block" style="padding-top:5px">About Mac</p>
+            <p class="title_block">Software Update</p>
+            <p class="title_block">App Store...</p>
+            <hr>
+            <p class="title_block">System Prefrences...</p>
+            <p class="title_block">Dock</p>
+            <hr>
+            <p class="title_block">Recent Items</p>
+            <hr>
+            <p class="title_block">Force Quit Finder</p>
+            <hr>
+            <p class="title_block">Sleep</p>
+            <p class="title_block">Restart...</p>
+            <p class="title_block">ShutDown...</p>
+            <hr>
+            <p class="title_block" style="padding-bottom:10px">Log Out Apple...</p>
+
+        </div>
+
+        <div class="title_blocks files_finder" id="title_blocks_finder" style="display: none">
+            <p class="title_block" style="padding-top:5px">About Finder</p>
+            <hr>
+            <p class="title_block">Prefrences...</p>
+            <hr>
+            <p class="title_block">Empty Trash...</p>
+            <hr>
+            <p class="title_block">Services</p>
+            <hr>
+            <p class="title_block">Hide Finder</p>
+            <p class="title_block">Hide Others</p>
+            <p class="title_block" style="padding-bottom:10px">Show All</p>
+
+        </div>
+
+        <div class="title_blocks files_edit" id="title_blocks_edit" style="display: none">
+            <p class="title_block" style="padding-top:5px">Redo Rename</p>
+            <hr>
+            <p class="title_block">Cut</p>
+            <p class="title_block">Copy</p>
+            <p class="title_block">Paste</p>
+            <p class="title_block">Select All</p>
+            <hr>
+            <p class="title_block">Show Clipboard</p>
+            <p class="title_block" style="padding-bottom:10px">Special Characters...</p>
+        </div>
+
+        <div class="title_blocks files_block" id="title_blocks_files" style="display: none">
+            <p class="title_block" style="padding-top:5px">New Folder Window</p>
+            <p class="title_block">New Folder</p>
+            <p class="title_block">New Smart Folder</p>
+
+            <p class="title_block">New Burn Folder</p>
+            <p class="title_block">Open</p>
+            <hr>
+            <p class="title_block">Open With</p>
+
+            <p class="title_block">Print</p>
+            <hr>
+            <p class="title_block">Close Window</p>
+            <hr>
+            <p class="title_block">Get Info</p>
+            <hr>
+            <p class="title_block">Compress</p>
+            <hr>
+            <p class="title_block">Make Alias</p>
+            <hr>
+            <p class="title_block">Move to Trash</p>
+            <p class="title_block">Eject</p>
+            <hr>
+            <p class="title_block" style="padding-bottom:10px">Find</p>
+
+        </div>
+
+
+
+        <div class="title_blocks files_go" id="title_blocks_go" style="display: none">
+            <p class="title_block" style="padding-top:5px">Back</p>
+            <hr>
+            <p class="title_block">Forward</p>
+            <hr>
+            <p class="title_block">Enclosing Folder</p>
+            <hr>
+            <p class="title_block">All My Files</p>
+            <hr>
+            <p class="title_block">Documents</p>
+            <p class="title_block">Desktop</p>
+            <p class="title_block">Downlaods</p>
+            <p class="title_block">Home</p>
+            <p class="title_block">Library</p>
+            <p class="title_block">Computer</p>
+            <p class="title_block">Airdrop</p>
+            <p class="title_block">Network</p>
+            <p class="title_block">ICloud Drive</p>
+            <p class="title_block">Applications</p>
+            <p class="title_block">Utilities</p>
+            <hr>
+            <p class="title_block">Recent Flolder</p>
+            <hr>
+            <p class="title_block">Go To Folder</p>
+            <p class="title_block" style="padding-bottom:10px">Connect To Server</p>
+
+        </div>
+
+        <div class="title_blocks files_view" id="title_blocks_view" style="display: none">
+            <p class="title_block" style="padding-top:5px">As Icons</p>
+            <p class="title_block">As list</p>
+            <p class="title_block">As Columns</p>
+            <p class="title_block">As Cover Flow</p>
+            <hr>
+            <p class="title_block">Clean Up</p>
+            <p class="title_block">Clean Up By</p>
+            <p class="title_block">Arrange By</p>
+            <hr>
+            <p class="title_block">Show Tab Bars</p>
+            <p class="title_block">Show Path Bars</p>
+            <p class="title_block">Hide Status Bar</p>
+            <p class="title_block">Hide Sidebar</p>
+            <p class="title_block">Show Preview</p>
+            <hr>
+            <p class="title_block">Hide Toolbar</p>
+            <p class="title_block">Customize Toolbar...</p>
+            <hr>
+            <p class="title_block">Show View Options</p>
+            <hr>
+            <p class="title_block" style="padding-bottom:10px">Enter Full Screen</p>
+        </div>
+
+
+        <div class="title_blocks files_help" id="title_blocks_help" style="display: none">
+            <p class="title_block" style="padding-top:5px;padding-bottom: 10px;text-align: center">Search <i class="fas fa-plus-circle"></i></p>
+            <input type="text" class="search_help">
+        </div>
+    </div>
+    <!--------------------------------------------------FINDER-------------------------------------------------------------->
+    <div class="main_work_area">
+
+        <!--
+        <div class="title_blocks files_help" id="title_blocks_help" style="display: none">
+            <p class="title_block" style="padding-top:5px;padding-bottom: 10px">Search <input type="text" style="background-color: transparent; border: 1px;"> <i class="fas fa-plus-circle"></i></p>
+        </div>
+-->
+
+
+
+
+        <div id="finder_window">
+            <div class='option_section'>
+                <div class="three_buttons">
+                    <div class="window_title"></div>
+                    <div class="close" onclick="closeFinder()"></div>
+                    <div class="maximize" onclick="miniFinder()"></div>
+                    <div class="minimise"></div>
+                </div>
+                <!--------------------BACK AND FORWARD BUTTONS-------------------->
+                <div class="back_forward">
+                    <div class="back"><i class="fas fa-angle-left backleft"></i></div>
+                    <div class="forward"><i class="fas fa-angle-right backleft"></i></div>
+                    <div class="cont">
+                        <div class="large" id="largeitems" onclick="makeblocks()"><i class="fas fa-th-large backright"></i></div>
+                        <div class="list" id="listitems"><i class="fas fa-bars backright" style="padding-left: 7"></i></div>
+                        <div class="tiles" id="tilesitems"><i class="far fa-map backright" style="padding-left: 5"></i></div>
+                        <div class="cascade" id="cascadeitems"><i class="fab fa-schlix backright" style="padding-left: 8; font-size: "></i></div>
+                    </div>
+                    <!--------------------Setting-------------------->
+                    <div class="setting_pref"><i class="fas fa-cog backright"></i></div>
+                    <div class="setting_pref"><i class="fas fa-paper-plane backright"></i></div>
+                    <!--------------------Search Box-------------------->
+                    <input type="text" placeholder="🔍 Search" class="search_box" id="search_box" onkeyup="myFunction()">
+                </div>
+                <!--------------------VIEW OPTIONS-------------------->
+
+            </div>
+            <!--------------------------------------------------------VIEW OPTIONS-------------------------------------------------------->
+            <div class="left_navigations">
+                <ul class="left_nav_child_big">
+                    <li class='left_nav_main_li'>Favorites
+                        <ul class="favorites">
+                            <li class="left_nav_child"><i class="fab fa-gg-circle"></i> AirDrop</li>
+                            <li class="left_nav_child"><i class="fas fa-cloud"></i> iCloud Drive</li>
+                            <li class="left_nav_child"><i class="fab fa-app-store"></i> Applications</li>
+                            <li class="left_nav_child"><i class="fas fa-desktop"></i> Desktop</li>
+                            <li class="left_nav_child"><i class="far fa-file-alt"></i> Documents</li>
+                            <li class="left_nav_child"><i class="fas fa-arrow-circle-down"></i> Download</li>
+                            <li class="left_nav_child"><i class="fab fa-fort-awesome"></i> User</li>
+                        </ul>
+                    </li>
+                    <li class='left_nav_main_li'>Devices
+                        <ul class="favorites">
+                            <li class="left_nav_child"><i class="fas fa-hdd"></i> Local Disk (C:)</li>
+                            <li class="left_nav_child"><i class="fas fa-hdd"></i> macOS Sierra</li>
+                            <li class="left_nav_child"><i class="fas fa-dot-circle"></i> Remote Disc</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+            <!--------------------------------------------------------WORK AREA-------------------------------------------------------->
+            <div class="work_area_finder" id="work_area_finder">
+                <table id="myTable">
+                    <tr>
+                        <th onclick="sortTable(0)" class='name_sorter'>Name <i class="fas fa-chevron-down sortername" style="color=" #6f7176 "></i></th>
+                <th onclick="sortTable(1) ">Country <i class="fas fa-chevron-down sortername " style="color="#6f7176"></i>
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>Berglunds snabbkop</td>
+                        <td>Sweden</td>
+                    </tr>
+                    <tr>
+                        <td>North/South</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Koniglich Essen</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Magazzini Alimentari Riuniti</td>
+                        <td>Italy</td>
+                    </tr>
+                    <tr>
+                        <td>Paris specialites</td>
+                        <td>France</td>
+                    </tr>
+                    <tr>
+                        <td>Berglunds snabbkop</td>
+                        <td>Sweden</td>
+                    </tr>
+                    <tr>
+                        <td>North/South</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Koniglich Essen</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Magazzini Alimentari Riuniti</td>
+                        <td>Italy</td>
+                    </tr>
+                    <tr>
+                        <td>Paris specialites</td>
+                        <td>France</td>
+                    </tr>
+                    <tr>
+                        <td>Island Trading</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Laughing Bacchus Winecellars</td>
+                        <td>Canada</td>
+                    </tr>
+                    <tr>
+                        <td>Berglunds snabbkop</td>
+                        <td>Sweden</td>
+                    </tr>
+                    <tr>
+                        <td>North/South</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Koniglich Essen</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Magazzini Alimentari Riuniti</td>
+                        <td>Italy</td>
+                    </tr>
+                    <tr>
+                        <td>Paris specialites</td>
+                        <td>France</td>
+                    </tr>
+                    <tr>
+                        <td>Island Trading</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Laughing Bacchus Winecellars</td>
+                        <td>Canada</td>
+                    </tr>
+                    <tr>
+                        <td>Island Trading</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Laughing Bacchus Winecellars</td>
+                        <td>Canada</td>
+                    </tr>
+                    <tr>
+                        <td>Berglunds snabbkop</td>
+                        <td>Sweden</td>
+                    </tr>
+                    <tr>
+                        <td>North/South</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Alfreds Futterkiste</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Koniglich Essen</td>
+                        <td>Germany</td>
+                    </tr>
+                    <tr>
+                        <td>Magazzini Alimentari Riuniti</td>
+                        <td>Italy</td>
+                    </tr>
+                    <tr>
+                        <td>Paris specialites</td>
+                        <td>France</td>
+                    </tr>
+                    <tr>
+                        <td>Island Trading</td>
+                        <td>UK</td>
+                    </tr>
+                    <tr>
+                        <td>Laughing Bacchus Winecellars</td>
+                        <td>Canada</td>
+                    </tr>
+                </table>
+
+                <div id='automer' style="display: none">
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                    <div id="folder_thumbs">
+                        <center>
+                            <img src="folder_image.png" id="folderimage">
+                            <h3>Folder Name</h3>
+                        </center>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

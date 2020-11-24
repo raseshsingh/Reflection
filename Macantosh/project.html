@@ -1,0 +1,176 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="project.css">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+   
+    
+    
+
+<body>
+    
+    <div id="home">  
+    
+    
+    <div class="naav">
+        
+        <ul class="navi">
+        
+            <li><a href="#"><i class="fab fa-apple apple" ></i></a></li>
+                
+         <li><a href="#">Finder</a></li>
+        
+        <li><a href="#">File</a></li>
+        
+        <li><a href="#">Edit</a></li>
+        
+        <li><a href="#">View</a></li>
+        
+        <li><a href="#">Go</a></li>
+        
+        <li><a href="#">Window</a></li>
+        
+        <li><a href="#">Help</a></li>
+        
+        
+        
+        
+        </ul>
+        
+        
+        
+        
+        
+        
+                </div>
+        
+        
+        
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    <!--------menu------>
+    
+    <hr>
+    
+    <script>
+    
+    function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+        
+        
+        window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+    </script>
+   
+    
+    
+    
+    
+    
+    <!-----------dropdown----->
+    
+    <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">Go</button>
+  <div id="myDropdown" class="submenu">
+      
+      
+    <a href="#">Back       <span>&#8984;[</span>      </a>
+      
+    <a href="#" style="opacity:0.4;">Forward <span>&#8984;]</span> </a>
+      
+    <a href="#">Enclosing Folder       <span>&#8984;
+       <i class="fas fa-long-arrow-alt-up"></i>    
+       </span>   </a>
+      
+      
+      
+      <hr>
+      
+      
+      
+      <a href="#"><i class="fas fa-file"> </i>  All My Files  <span> <i class="fal fa-arrow-alt-up"></i> &#8984;F</span></a>
+      
+      
+    <a href="#"><i class="far fa-copy"></i>  Documents <span>&#8984;<i class="far fa-circle"></i> </span></a>
+      
+      
+    <a href="#"><i class="fas fa-desktop"></i> Desktop    <span>&#8984;D </span></a>
+      
+      
+   
+      <a href="#"><i class="fas fa-arrow-alt-circle-down"></i>Downloads  <span>&#8984;L </span></a>
+      
+      
+      
+      
+    <a href="#"><i class="fas fa-home"></i> Home <span>&#8984;H</span></a>
+      
+    <a href="#"><i class="fas fa-folder"></i> Library    </a>
+  
+      <a href="#"><i class="fas fa-tv"></i> Computer    <span>&#8984;C</span>   </a>
+    <a href="#"> <img src="https://png.icons8.com/ios/50/000000/airdrop.png" style="height: 20px;" > Air Drop  <span>&#8984;R</span> </a>
+      
+      
+      
+    <a href="#"><i class="fa fa-cog" style="font-size:24px"></i> Network  <span>&#8984;K</span></a>
+  
+      <a href="#"><i class="fas fa-cloud"></i> iCloud Drive     <span>&#8984;I</span>   </a>
+      
+      
+      
+    <a href="#"><i class="fab fa-app-store"></i>       Applications <span>&#8984;A</span> </a>
+      
+      
+      
+      <a href="#"><i class="fas fa-cogs"></i>  Utilities  <span>&#8984;U</span> </a>
+      <hr>
+      <a href="#">Recent Folder    <span><i class="fas fa-caret-right"></i></span>  </a>
+      <hr>
+    <a href="#">Go To Folder  <span>&#8984;G</span> </a>
+    <a href="#">Connect to Server    <span>&#8984;K</span></a>
+  </div>
+</div>
+    
+    
+    <!--------dropdown end--->
+    
+
+    
+    
+    
+    
+    
+    </body>
+
+
+
+
+
+</html>

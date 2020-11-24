@@ -1,0 +1,67 @@
+body{margin: auto; }
+
+
+.naav{ height:; overflow: hidden;
+   
+              }
+
+            
+    
+.naav .navi li,.naav .navi li a{ 
+    
+             display: inline-block;
+             text-decoration: none;
+          margin-left: 18px; 
+        color:black;
+            font-weight:400}
+
+
+        
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #fdebe1;
+    min-width: 250px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+
+.submenu a {
+    color: black;
+    padding: 3px;
+    text-decoration: none;
+    display: block;
+    margin-left: 13px;
+    font-family:serif;
+}
+
+
+.submenu a:hover {background-color:skyblue;}
+
+
+.show {display:block;}
+
+
+span{float:right;
+    margin-right:18px; 
+    font-weight: 700    }

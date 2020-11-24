@@ -1,0 +1,138 @@
+<html>
+
+
+<head>
+    <link rel="stylesheet" href="cs.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Source+Sans+Pro" rel="stylesheet">
+    <script>
+        var finderWindow = document.getElementById('finder_window');
+
+        function closeFinder() {
+            var x = document.getElementById("finder_window");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("myTable");
+            switching = true;
+            //Set the sorting direction to ascending:
+            dir = "asc";
+            /*Make a loop that will continue until
+            no switching has been done:*/
+            while (switching) {
+                //start by saying: no switching is done:
+                switching = false;
+                rows = table.getElementsByTagName("TR");
+                /*Loop through all table rows (except the
+                first, which contains table headers):*/
+                for (i = 1; i < (rows.length - 1); i++) {
+                    //start by saying there should be no switching:
+                    shouldSwitch = false;
+                    /*Get the two elements you want to compare,
+                    one from current row and one from the next:*/
+                    x = rows[i].getElementsByTagName("TD")[n];
+                    y = rows[i + 1].getElementsByTagName("TD")[n];
+                    /*check if the two rows should switch place,
+                    based on the direction, asc or desc:*/
+                    if (dir == "asc") {
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    } else if (dir == "desc") {
+                        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                            //if so, mark as a switch and break the loop:
+                            shouldSwitch = true;
+                            break;
+                        }
+                    }
+                }
+                if (shouldSwitch) {
+                    /*If a switch has been marked, make the switch
+                    and mark that a switch has been done:*/
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                    //Each time a switch is done, increase this count by 1:
+                    switchcount++;
+                } else {
+                    /*If no switching has been done AND the direction is "asc",
+                    set the direction to "desc" and run the while loop again.*/
+                    if (switchcount == 0 && dir == "asc") {
+                        dir = "desc";
+                        switching = true;
+                    }
+                }
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="finder_window">
+        <div class='option_section'>
+            <div class="three_buttons">
+                <div class="window_title"></div>
+                <div class="close" onclick="closeFinder()"></div>
+                <div class="maximize"></div>
+                <div class="minimise"></div>
+            </div>
+            <!--------------------BACK AND FORWARD BUTTONS-------------------->
+            <div class="back_forward">
+                <div class="back"><i class="fas fa-angle-left backleft"></i></div>
+                <div class="forward"><i class="fas fa-angle-right backleft"></i></div>
+                <div class="cont">
+                    <div class="large"><i class="fas fa-th-large backright"></i></div>
+                    <div class="list"><i class="fas fa-bars backright" style="padding-left: 7"></i></div>
+                    <div class="tiles"><i class="far fa-map backright" style="padding-left: 5"></i></div>
+                    <div class="cascade"><i class="fab fa-schlix backright" style="padding-left: 8; font-size: "></i></div>
+                </div>
+                <!--------------------Setting-------------------->
+                <div class="setting_pref"><i class="fas fa-cog backright"></i></div>
+                <div class="setting_pref"><i class="fas fa-paper-plane backright"></i></div>
+                <!--------------------Search Box-------------------->
+                <input type="text" placeholder="🔍 Search" class="search_box" id="search_box" onkeyup="myFunction()">
+            </div>
+            <!--------------------VIEW OPTIONS-------------------->
+
+        </div>
+        <!--------------------------------------------------------VIEW OPTIONS-------------------------------------------------------->
+        <div class="left_navigations">
+            <ul class="left_nav_child_big">
+                <li class='left_nav_main_li'>Favorites
+                    <ul class="favorites">
+                        <li class="left_nav_child"><i class="fab fa-gg-circle"></i> AirDrop</li>
+                        <li class="left_nav_child"><i class="fas fa-cloud"></i> iCloud Drive</li>
+                        <li class="left_nav_child"><i class="fab fa-app-store"></i> Applications</li>
+                        <li class="left_nav_child"><i class="fas fa-desktop"></i> Desktop</li>
+                        <li class="left_nav_child"><i class="far fa-file-alt"></i> Documents</li>
+                        <li class="left_nav_child"><i class="fas fa-arrow-circle-down"></i> Download</li>
+                        <li class="left_nav_child"><i class="fab fa-fort-awesome"></i> User</li>
+                    </ul>
+                </li>
+                <li class='left_nav_main_li'>Devices
+                    <ul class="favorites">
+                        <li class="left_nav_child"><i class="fas fa-hdd"></i> Local Disk (C:)</li>
+                        <li class="left_nav_child"><i class="fas fa-hdd"></i> macOS Sierra</li>
+                        <li class="left_nav_child"><i class="fas fa-dot-circle"></i> Remote Disc</li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+        <!--------------------------------------------------------WORK AREA-------------------------------------------------------->
+        <div class="work_area_finder">
+           <iframe src="../files/files_view.html">fdskgjaskld</iframe>
+        </div>
+
+    </div>
+</body>
+
+</html>
